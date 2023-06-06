@@ -1,5 +1,6 @@
 import { StaticImageData } from "next/image";
 import React from "react";
+import {OverridableStringUnion} from '@mui/types'
 
 export interface ProductTypes {
     category: string;
@@ -27,4 +28,15 @@ export interface CategoriesTypes {
 export interface SlidesTypes {
     children: React.ReactNode;
     classNames: string;
+};
+
+export interface ButtonProps {
+    children: React.ReactNode;
+    variant: OverridableStringUnion | undefined;
+    classes: string;
+};
+
+export interface SwiperProps {
+    children: React.ReactNode;
+    classes: string;
 }

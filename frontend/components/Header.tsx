@@ -20,14 +20,14 @@ const Header = () => {
     }) : [];
     return (
         <>
-            <header className='text-black bg-primary transition-all lg:py-2 duration-300 fixed shadow-md flex flex-col items-center w-full z-40 text-sm' >
+            <header className='text-navTextColor bg-primary transition-all font-bodyFont lg:py-2 duration-300 fixed shadow-md flex flex-col items-center w-full z-40 text-sm' >
                 <div className='mx-auto w-full md:w-5/6 flex flex-row justify-evenly items-center '>
                     <div onClick={() => setisMenuOpen(!isMenuOpen)} className='flex md:hidden p-0 m-0 cursor-pointer w-[40px] md:w-[60px] justify-center'>
                         <AiOutlineMenu size={20} />
                     </div>
-                    <Link href='/' className='text-lg md:text-2xl font-title font-bold flex pb-2 md:pb-0 flex-col justify-center items-center gap-y-[2px]' >
-                        AD Shop For You
-                        <span className='uppercase text-[8px] md:text-xs border border-black lg:py-1 py-0 w-full text-center tracking-[2px] md:tracking-[3px]'>E-commerce Store</span>
+                    <Link href='/' className='text-lg md:text-2xl font-titleFont font-bold flex pb-2 md:pb-0 flex-col justify-center items-center gap-y-[2px]' >
+                        Cheap Chic
+                        <span className='uppercase text-[8px] md:text-[10px] leading-3 border border-black lg:py-1 py-0 w-full text-center tracking-[2px]'>Trading Shop</span>
                     </Link>
                     <div className='hidden md:flex flex-row gap-x-4 md:w-2/4'>
                         <div className='flex items-center w-full flex-row relative'>
