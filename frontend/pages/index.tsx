@@ -1,5 +1,7 @@
 import Banner from "@/components/Banner";
+import CategoriesItems from "@/components/CategoriesItems";
 import Header from "@/components/Header";
+import MainBanner from "@/components/MainBanner";
 import Products from "@/components/Products";
 
 export default function Home() {
@@ -8,6 +10,12 @@ export default function Home() {
       <main>
         <Header />
         <div className="container mx-auto px-2 md:px-0">
+          <div>
+            <MainBanner/>
+          </div>
+          <div className="pt-10">
+            <CategoriesItems/>
+          </div>
           <div className="pt-10">
             <Products />
           </div>

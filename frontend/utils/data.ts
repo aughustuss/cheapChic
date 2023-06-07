@@ -1,27 +1,44 @@
-import { CategoriesTypes, SexType, UfTypes } from "@/typings"
-
+import { CategoriesTitleType, CategoriesTypes, SexType, UfTypes } from "@/typings"
+import { FaTshirt } from 'react-icons/fa'
+import { GiLargeDress, GiBigDiamondRing } from 'react-icons/gi'
+import { RiComputerFill } from 'react-icons/ri'
 export const Categories: CategoriesTypes[] = [
-    {   
+    {
         id: 1,
         title: "Men's Clothing",
-        slug: ''
+        icon: FaTshirt,
     },
-    {   
+    {
         id: 1,
         title: "Women's Clothing",
-        slug: ''
+        icon: GiLargeDress,
     },
-    {   
+    {
         id: 1,
         title: "Jewelery",
-        slug: ''
+        icon: GiBigDiamondRing,
     },
-    {   
+    {
         id: 1,
         title: "Electronics",
-        slug: ''
+        icon: RiComputerFill,
     },
 ];
+
+export const CategoriesTitle: CategoriesTitleType[] = [
+    {
+        title: "Men's Clothing",
+    },
+    {
+        title: "Women's Clothing",
+    },
+    {
+        title: "Jewelery",
+    },
+    {
+        title: "Electronics",
+    }
+]
 
 export const UFs: UfTypes[] = [
     {

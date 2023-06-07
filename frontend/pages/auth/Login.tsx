@@ -46,7 +46,7 @@ const Login = () => {
                                 })}
                                 helperText={errors.password && (errors.password.type === 'required' ? 'Preencha a sua senha.' : 'Sua senha deve ter no mínimo 8 caractéres, 1 letra e 1 número.')}
                             />
-                            <Button type="submit" className='w-full' variant='contained'>Entrar</Button>
+                            <Button type="submit" className='w-full bg-primary' variant='contained'>Entrar</Button>
                         </form>
                         <div className='text-gray w-full flex flex-col gap-y-4'>
                             <p className='text-center text-xs'>ou</p>

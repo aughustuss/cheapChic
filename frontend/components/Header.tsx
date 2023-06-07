@@ -7,6 +7,7 @@ import { HiOutlineSearch } from 'react-icons/hi'
 import { CgClose } from 'react-icons/cg'
 import { MdAccountBox, MdArrowForward, MdFavorite, MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp, MdOutlineLogin } from 'react-icons/md'
 import { FaShoppingCart } from 'react-icons/fa'
+import { CartContext } from '@/contexts/Cart';
 
 
 const Header = () => {
@@ -16,6 +17,8 @@ const Header = () => {
     const [listOpen, setListOpen] = React.useState<boolean>(false);
 
     const { products } = React.useContext(ProductContext);
+    const {itemAmount} = React.useContext(CartContext);
+
     const filteredSearch = search.length > 0 ? products.filter(item => {
         return item.title.toLowerCase().includes(search.toLowerCase())
     }) : [];
@@ -67,11 +70,12 @@ const Header = () => {
                         <div className='hover:bg-darkPrimary rounded-md p-2 cursor-pointer'>
                             <MdFavorite size={22} />
                         </div>
-                        <div className='hover:bg-darkPrimary rounded-md p-2 cursor-pointer'>
+                        <div className='hover:bg-darkPrimary rounded-md p-2 cursor-pointer relative'>
                             <FaShoppingCart size={22} />
+                            <span className={`${itemAmount < 1 ? 'hidden' : 'absolute -top-2 -right-1 bg-red-600 rounded-full text-white flex items-center justify-center h-5 w-5 text-[10px]'} `}>{itemAmount}</span>
                         </div>
                         <Link href={"/auth/Login"} className='bg-darkPrimary rounded-md p-2 cursor-pointer flex flex-row items-center gap-1'>
-                            LOGIN 
+                            LOGIN
                         </Link>
                     </div>
                     <div className='flex flex-row gap-x-2 md:hidden items-center max-w-[60px] justify-center h-1/3 w-full'>
@@ -132,9 +136,9 @@ const Header = () => {
                                 <ul className='text-gray bg-white capitalize absolute top-full w-full p-2 rounded-b-md' >
                                     {Categories.map((item) => {
                                         return (
-                                            <li key={item.id} className='hover:text-white hover:bg-primary text-sm md:text-md flex transition duration-500'>
-                                                <Link className='w-full h-full p-2 ' href='/'> {item.title} </Link>
-                                            </li>
+                                            <Link href={`/category/${(item.title).toLowerCase()}`} key={item.id} className='hover:text-white hover:bg-primary text-sm md:text-md flex transition duration-500'>
+                                                <p className='p-2 text-center'>{item.title}</p>
+                                            </Link>
                                         )
                                     })}
                                 </ul>

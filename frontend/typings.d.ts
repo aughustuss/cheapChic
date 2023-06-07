@@ -1,6 +1,7 @@
 import { StaticImageData } from "next/image";
 import React from "react";
 import {OverridableStringUnion} from '@mui/types'
+import { IconType } from "react-icons/lib";
 
 export interface ProductTypes {
     category: string;
@@ -13,6 +14,7 @@ export interface ProductTypes {
         rate: number;
     },
     title: string;
+    amount: number ;
 };
 
 export interface ProductContextTypes {
@@ -20,10 +22,14 @@ export interface ProductContextTypes {
 };
 
 export interface CategoriesTypes {
-    id: number,
+    id: number | string,
     title: string;
-    slug: string;
+    icon: IconType | string;
 };
+
+export interface CategoriesTitleType {
+    title: string;
+}
 
 export interface UfTypes {
     uf: string;
@@ -76,4 +82,15 @@ export interface RegisterFormData {
     birthdate: string;
     password: string;
     confirmpassword: string;
+};
+
+export interface CartContextType {
+    cart: ProductTypes[];
+    addToCart: (value: ProductTypes, id: number) => void;
+    removeFromCart: (value: number) => void;
+    clearCart: () => void;
+    increase: (value: number) => void;
+    decrease: (value: number) => void;
+    itemAmount: number;
+    totalPrice: number;
 }

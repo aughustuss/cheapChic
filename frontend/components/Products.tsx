@@ -11,12 +11,11 @@ const Products = () => {
   const { products } = React.useContext(ProductContext);
   const isAboveSM = mediaQuery("(min-width: 640px)");
   const [page, setPage] = React.useState<number>(1);
-  console.log(isAboveSM);
   return (
     <>
       <section className='py-20 w-full flex flex-col gap-y-4  justify-center'>
                 <div className='flex flex-col w-full h-full'>
-                    <p className='text-lg text-secondary font-semibold'>Encontre de tudo</p>
+                    <p className='text-lg text-tertiary font-semibold'>Encontre de tudo</p>
                     <p className='text-5xl text-primary font-semibold font-titleFont'>Dê uma olhada no que há de melhor</p>
                 </div>
                 {isAboveSM ? (

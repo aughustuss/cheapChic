@@ -1,10 +1,12 @@
 import { ProductTypes } from '@/typings'
 import React from 'react'
-import { ThemeProvider, Rating } from '@mui/material'
+import { ThemeProvider, Rating, Button } from '@mui/material'
 import { theme } from '@/utils/theme'
 import Link from 'next/link';
 import { BsEyeFill, BsPlus } from 'react-icons/bs'
 import { ReusableButton } from './Button';
+import Header from '../Header';
+import CartContext from '@/contexts/Cart';
 
 interface ProdutByProps {
     product: ProductTypes;
@@ -12,6 +14,7 @@ interface ProdutByProps {
 
 const Product = ({ product }: ProdutByProps) => {
     const { image, title, id, price, rating, category } = product;
+    const {addToCart} = React.useContext(CartContext);
     return (
         <>
             <ThemeProvider theme={theme}>
@@ -26,10 +29,10 @@ const Product = ({ product }: ProdutByProps) => {
                             </div>
                         </div>
                         <div className=' absolute top-6 -right-16 group-hover:right-3 p-2 flex flex-col justify-center items-center gap-y-1 group transition-all duration-500 rounded-md'>
-                            <ReusableButton variant='contained' classes='w-12 h-8 text-white ' >
-                                <BsPlus className='text-2xl font-semibold' />
-                            </ReusableButton>
-                            <Link href={`/product/${id}`} title='Ver item' className='bg-white w-12 h-8 rounded-md hover:scale-110 transition duration-300 flex justify-center items-center text-black shadow-neutral-300 shadow-sm ' >
+                            <Button onClick={() => addToCart(product, id)} variant='contained' type="button" className='w-12 h-8 text-white bg-primary'>
+                                <BsPlus  className='text-2xl font-semibold ' />
+                            </Button>
+                            <Link href={`/productDetails/${id}`} title='Ver item' className='bg-white w-12 h-8 rounded-md hover:scale-110 transition duration-300 flex justify-center items-center text-black shadow-neutral-300 shadow-sm ' >
                                 <BsEyeFill />
                             </Link>
                         </div>
