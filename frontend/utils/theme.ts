@@ -12,8 +12,8 @@ export const theme = createTheme({
                 root: {
                     minWidth: '0',
                     borderRadius: '6px',
-                }
-            }
-        }
+                },
+            },
+        },
     }
 })

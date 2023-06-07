@@ -20,6 +20,7 @@ module.exports = {
         quinary: "#007aff",
         gray: "#8c8b8b",
         navTextColor: '#f1f1f1',
+        darkPrimary: "#31005B",
       },
     },
   },

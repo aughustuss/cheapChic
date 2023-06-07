@@ -5,7 +5,8 @@ import React from 'react'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { HiOutlineSearch } from 'react-icons/hi'
 import { CgClose } from 'react-icons/cg'
-import { MdArrowForward, MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from 'react-icons/md'
+import { MdAccountBox, MdArrowForward, MdFavorite, MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp, MdOutlineLogin } from 'react-icons/md'
+import { FaShoppingCart } from 'react-icons/fa'
 
 
 const Header = () => {
@@ -21,15 +22,15 @@ const Header = () => {
     return (
         <>
             <header className='text-navTextColor bg-primary transition-all font-bodyFont lg:py-2 duration-300 fixed shadow-md flex flex-col items-center w-full z-40 text-sm' >
-                <div className='mx-auto w-full md:w-5/6 flex flex-row justify-evenly items-center '>
-                    <div onClick={() => setisMenuOpen(!isMenuOpen)} className='flex md:hidden p-0 m-0 cursor-pointer w-[40px] md:w-[60px] justify-center'>
+                <div className='mx-auto w-full md:w-5/6 flex flex-row justify-between items-center '>
+                    <div onClick={() => setisMenuOpen(!isMenuOpen)} className=' flex md:hidden p-0 m-0 cursor-pointer w-[40px] md:w-[60px] justify-center'>
                         <AiOutlineMenu size={20} />
                     </div>
                     <Link href='/' className='text-lg md:text-2xl font-titleFont font-bold flex pb-2 md:pb-0 flex-col justify-center items-center gap-y-[2px]' >
                         Cheap Chic
                         <span className='uppercase text-[8px] md:text-[10px] leading-3 border border-black lg:py-1 py-0 w-full text-center tracking-[2px]'>Trading Shop</span>
                     </Link>
-                    <div className='hidden md:flex flex-row gap-x-4 md:w-2/4'>
+                    <div className='hidden md:flex flex-row gap-x-4 w-3/5'>
                         <div className='flex items-center w-full flex-row relative'>
                             <input onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Digite sua busca...' className='bg-slate-200 pl-2 py-2 hidden md:flex w-full h-full outline-none text-neutral-600 rounded-md' />
                             <span className='flex md:absolute right-4 text-xl text-neutral-600'>{search.length > 0 ? <CgClose className='cursor-pointer' onClick={() => setSearch('')} /> : <HiOutlineSearch />}</span>
@@ -61,7 +62,17 @@ const Header = () => {
                                 )}
                             </div>
                         </div>
-
+                    </div>
+                    <div className='hidden md:flex flex-row items-center gap-1'>
+                        <div className='hover:bg-darkPrimary rounded-md p-2 cursor-pointer'>
+                            <MdFavorite size={22} />
+                        </div>
+                        <div className='hover:bg-darkPrimary rounded-md p-2 cursor-pointer'>
+                            <FaShoppingCart size={22} />
+                        </div>
+                        <Link href={"/auth/Login"} className='bg-darkPrimary rounded-md p-2 cursor-pointer flex flex-row items-center gap-1'>
+                            LOGIN 
+                        </Link>
                     </div>
                     <div className='flex flex-row gap-x-2 md:hidden items-center max-w-[60px] justify-center h-1/3 w-full'>
                         <div className='cursor-pointer'>
