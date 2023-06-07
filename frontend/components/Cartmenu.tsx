@@ -5,13 +5,14 @@ import { theme } from '@/utils/theme'
 import { Button, ThemeProvider } from '@mui/material'
 import Link from 'next/link'
 import React from 'react'
-import {IoMdArrowForward} from 'react-icons/io'
+import { IoMdArrowForward } from 'react-icons/io'
 import { FaShoppingCart } from 'react-icons/fa'
+import Cartitem from './reusables/Cartitem'
 
 const Cartmenu = () => {
-    const {isOpen, setIsOpen, handleIsOpen} = React.useContext(CartMenuContext);
+    const { isOpen, setIsOpen, handleIsOpen } = React.useContext(CartMenuContext);
     console.log(isOpen);
-    const {cart, itemAmount, totalPrice} = React.useContext(CartContext)
+    const { cart, itemAmount, totalPrice } = React.useContext(CartContext)
     return (
         <>
             <ThemeProvider theme={theme}>
@@ -26,7 +27,12 @@ const Cartmenu = () => {
                             <IoMdArrowForward />
                         </div>
                     </div>
-                    
+                    <div className='flex flex-col gap-y-2 h-[400px] sm:h-[520px] overflow-x-hidden overflow-auto '>
+                        {cart.map((product: ProductTypes) => (
+                            <Cartitem product={product} key={product.id} />
+                        )
+                        )}
+                    </div>
                     <div className='w-full'>
                         <div>
                             <span className='font-semibold text-sm'>Total: <span className='text-secondary'>R$</span> {totalPrice.toFixed(2)}</span>
