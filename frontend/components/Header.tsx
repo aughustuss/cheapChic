@@ -5,9 +5,10 @@ import React from 'react'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { HiOutlineSearch } from 'react-icons/hi'
 import { CgClose } from 'react-icons/cg'
-import { MdAccountBox, MdArrowForward, MdFavorite, MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp, MdOutlineLogin } from 'react-icons/md'
+import {  MdArrowForward, MdFavorite, MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp, MdOutlineLogin } from 'react-icons/md'
 import { FaShoppingCart } from 'react-icons/fa'
 import { CartContext } from '@/contexts/Cart';
+import CartMenuContext from '@/contexts/Cartmenu';
 
 
 const Header = () => {
@@ -18,6 +19,7 @@ const Header = () => {
 
     const { products } = React.useContext(ProductContext);
     const {itemAmount} = React.useContext(CartContext);
+    const {isOpen, setIsOpen} = React.useContext(CartMenuContext);
 
     const filteredSearch = search.length > 0 ? products.filter(item => {
         return item.title.toLowerCase().includes(search.toLowerCase())
@@ -70,7 +72,7 @@ const Header = () => {
                         <div className='hover:bg-darkPrimary rounded-md p-2 cursor-pointer'>
                             <MdFavorite size={22} />
                         </div>
-                        <div className='hover:bg-darkPrimary rounded-md p-2 cursor-pointer relative'>
+                        <div onClick={() => setIsOpen(!isOpen)} className='hover:bg-darkPrimary rounded-md p-2 cursor-pointer relative'>
                             <FaShoppingCart size={22} />
                             <span className={`${itemAmount < 1 ? 'hidden' : 'absolute -top-2 -right-1 bg-red-600 rounded-full text-white flex items-center justify-center h-5 w-5 text-[10px]'} `}>{itemAmount}</span>
                         </div>

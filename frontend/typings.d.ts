@@ -93,4 +93,10 @@ export interface CartContextType {
     decrease: (value: number) => void;
     itemAmount: number;
     totalPrice: number;
+};
+
+export interface CartMenuContextType {
+    isOpen: boolean;
+    setIsOpen: (val: boolean) => void;
+    handleIsOpen: () => void;
 }
